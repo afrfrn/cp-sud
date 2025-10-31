@@ -10,6 +10,8 @@
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
+<link rel="icon" type="image/png" href="logo-removebg-preview.png">
+
 <style>
 /* ---------- Global ---------- */
 * {box-sizing:border-box; margin:0; padding:0;}
@@ -28,24 +30,67 @@ ul{padding-left:20px;}
 
 /* ---------- Header ---------- */
 header{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:25px;
+  flex-wrap:wrap;
+  padding:30px 20px;
   background:#005b96;
   color:white;
-  padding:40px 20px;
   text-align:center;
 }
-header h1{font-size:2.5rem;margin-bottom:10px;}
-header p{font-size:1.1rem;}
+header img{height:100px; flex-shrink:0;}
+header h1{margin:0; font-size:2.5rem;}
+header p{margin-top:5px; font-size:1.1rem;}
 
 /* ---------- Navigation ---------- */
 nav{
   background:#003f63;
-  padding:12px;
-  text-align:center;
+  padding:12px 20px;
   position:sticky;
   top:0;
   z-index:100;
 }
-nav a{color:white;margin:0 15px;font-weight:bold;}
+.nav-container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  max-width:1000px;
+  margin:0 auto;
+}
+.nav-links{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:20px;
+}
+.nav-links a{
+  color:white;
+  font-weight:bold;
+  font-size:1rem;
+  transition:0.3s;
+}
+.nav-links a:hover{color:#28a745;}
+
+/* ---------- Hamburger Button ---------- */
+#menu-toggle{
+  display:none;
+  font-size:28px;
+  background:none;
+  color:white;
+  border:none;
+  cursor:pointer;
+  transition:transform 0.3s, color 0.3s;
+}
+#menu-toggle:hover{
+  transform:scale(1.1);
+  color:#28a745;
+}
+#menu-toggle.active::before {
+  content: "✖";
+  font-size:26px;
+}
 
 /* ---------- Buttons ---------- */
 .btn{
@@ -56,14 +101,15 @@ nav a{color:white;margin:0 15px;font-weight:bold;}
   border-radius:8px;
   font-weight:bold;
   transition:0.3s;
+  text-align:center;
 }
 .btn:hover{background:#1e7e34; transform: translateY(-3px);}
 
 /* ---------- Sections ---------- */
 section{
   max-width:1000px;
-  margin:60px auto;
-  padding:20px;
+  margin:50px auto;
+  padding:25px;
   background:white;
   border-radius:10px;
   box-shadow:0 5px 15px rgba(0,0,0,0.08);
@@ -116,7 +162,7 @@ section h2{color:#005b96; margin-bottom:15px; font-size:1.8rem;}
 /* ---------- Clients ---------- */
 #clients ul{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:20px;
   list-style:none;
   padding:0;
@@ -129,8 +175,9 @@ footer{
   text-align:center;
   background:#003f63;
   color:white;
-  padding:15px;
+  padding:20px 10px;
   margin-top:60px;
+  font-size:0.95rem;
 }
 
 /* ---------- Back to top ---------- */
@@ -152,131 +199,166 @@ footer{
 #backToTop:hover{background:#1e7e34; transform:translateY(-3px);}
 
 /* ---------- Responsive ---------- */
+@media(max-width:992px){
+  header{
+    flex-direction:column;
+    text-align:center;
+    gap:15px;
+  }
+  header img{height:80px;}
+  header h1{font-size:2rem;}
+}
+
 @media(max-width:768px){
+  section{margin:40px 10px; padding:20px;}
   .rectangle{height:180px;}
   .rectangle span{font-size:1.2rem;}
+  nav .nav-links{
+    display:none;
+    flex-direction:column;
+    width:100%;
+    text-align:center;
+    background:#003f63;
+    padding-top:10px;
+  }
+  .nav-links a{
+    display:block;
+    padding:10px 0;
+    border-top:1px solid rgba(255,255,255,0.1);
+  }
+  .nav-links.show{
+    display:flex;
+    animation:fadeIn 0.3s ease-in-out;
+  }
+  #menu-toggle{display:block;}
+  @keyframes fadeIn{
+    from{opacity:0; transform:translateY(-10px);}
+    to{opacity:1; transform:translateY(0);}
+  }
 }
+
 @media(max-width:480px){
-  nav{display:flex; flex-direction:column;}
-  nav a{margin:10px 0;}
-  #clients ul{grid-template-columns:1fr; gap:15px;}
+  section{padding:15px; margin:30px 8px;}
   .rectangle{height:150px;}
   .rectangle span{font-size:1rem;}
+  header img{height:70px;}
+  header h1{font-size:1.6rem;}
+  header p{font-size:0.95rem;}
+  body{font-size:0.95rem;}
 }
-
-
-
 </style>
-<link rel="icon" type="image/png" href="logo-removebg-preview.png">
 </head>
 
 <body>
-<!--<header>
-<h1>CP-SUD Consulting</h1>
-<p>Conseil & Accompagnement - Agadir</p>
-</header>-->
-<header style="display:flex; align-items:center; justify-content:center; gap:25px; flex-wrap:wrap; padding:30px 20px; background:#005b96; color:white;">
-    <img src="logo-removebg-preview.png" alt="Logo CP-SUD" style="height:100px; flex-shrink:0;">
-    <div style="text-align:center;">
-      <h1 style="margin:0; font-size:2.5rem;">CP-SUD Consulting</h1>
-      <p style="margin-top:5px; font-size:1.1rem;">Conseil & Accompagnement - Agadir</p>
-    </div>
-  </header>
+
+<header>
+  <img src="logo-removebg-preview.png" alt="Logo CP-SUD">
+  <div>
+    <h1>CP-SUD Consulting</h1>
+    <p>Conseil & Accompagnement - Agadir</p>
+  </div>
+</header>
+
 <nav>
-<a href="#services">Nos services</a>
-<a href="#mission">Notre mission</a>
-<a href="#vision">Notre vision</a>
-<a href="#valeurs">Nos valeurs</a>
-<a href="#clients">Nos clients</a>
-<a href="#contact">Contact</a>
+  <div class="nav-container">
+    <button id="menu-toggle" aria-label="Ouvrir le menu">&#9776;</button>
+    <div class="nav-links">
+      <a href="#services">Nos services</a>
+      <a href="#mission">Notre mission</a>
+      <a href="#vision">Notre vision</a>
+      <a href="#valeurs">Nos valeurs</a>
+      <a href="#clients">Nos clients</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
 </nav>
 
 <!-- Rectangle décoratif interactif -->
 <div class="rectangle">
-<img src="image.jpg" alt="Notre engagement" loading="lazy">
-<span>Notre engagement, votre réussite</span>
+  <img src="image.jpg" alt="Notre engagement" loading="lazy">
+  <span>Notre engagement, votre réussite</span>
 </div>
 
 <section id="about">
-<h2>Qui sommes-nous ?</h2>
-<p>CP-SUD est un cabinet de conseil situé à Agadir, spécialisé en accompagnement des entreprises opérant dans les industries et la transformation des produits alimentaires.</p>
-<p>Animé par une équipe de consultants expérimentés, notre cabinet propose des missions de conseil sur mesure et adaptées aux besoins des PME, institutions et centres de formation.</p>
+  <h2>Qui sommes-nous ?</h2>
+  <p>CP-SUD est un cabinet de conseil situé à Agadir, spécialisé en accompagnement des entreprises opérant dans les industries et la transformation des produits alimentaires.</p>
+  <p>Animé par une équipe de consultants expérimentés, notre cabinet propose des missions de conseil sur mesure et adaptées aux besoins des PME, institutions et centres de formation.</p>
 </section>
 
 <section id="mission">
-<h2>Notre mission</h2>
-<p>Servir le développement, accompagner les changements, former les ressources humaines aux modèles de gestion pertinents.</p>
+  <h2>Notre mission</h2>
+  <p>Servir le développement, accompagner les changements, former les ressources humaines aux modèles de gestion pertinents.</p>
 </section>
 
 <section id="vision">
-<h2>Notre vision</h2>
-<p>Capitaliser sur notre savoir-faire et notre réseau de partenaires pour créer de la valeur ajoutée et vous accompagner vers la réussite.</p>
+  <h2>Notre vision</h2>
+  <p>Capitaliser sur notre savoir-faire et notre réseau de partenaires pour créer de la valeur ajoutée et vous accompagner vers la réussite.</p>
 </section>
 
 <section id="valeurs">
-<h2>Nos valeurs</h2>
-<ul>
-<li>Rigueur et professionnalisme</li>
-<li>Conformité et engagement</li>
-</ul>
+  <h2>Nos valeurs</h2>
+  <ul>
+    <li>Rigueur et professionnalisme</li>
+    <li>Conformité et engagement</li>
+  </ul>
 </section>
 
 <section id="services">
-<h2>Nos services</h2>
-<ul>
-<li>Accompagnement à la certification (ISO 9001, 14001, 45001, 50001, 22000, 26000, SMETA...)</li>
-<li>Préparation des agréments sanitaires (ONSSA, FDA USA, CIFER Chine, EORI Europe)</li>
-<li>Implémentation HACCP et plan de maîtrise sanitaire</li>
-<li>Formations (qualité, normes, audit, maintenance, sur demande...)</li>
-<li>Audit & suivi</li>
-</ul>
+  <h2>Nos services</h2>
+  <ul>
+    <li>Accompagnement à la certification (ISO 9001, 14001, 45001, 50001, 22000, 26000, SMETA...)</li>
+    <li>Préparation des agréments sanitaires (ONSSA, FDA USA, CIFER Chine, EORI Europe)</li>
+    <li>Implémentation HACCP et plan de maîtrise sanitaire</li>
+    <li>Formations (qualité, normes, audit, maintenance, sur demande...)</li>
+    <li>Audit & suivi</li>
+  </ul>
 </section>
 
 <section id="clients">
-<h2>Nos clients</h2>
-<ul>
-<li>
-<div class="rectangle" aria-label="Client 1">
-<img src="pêche.JPEG" alt="Client 1" loading="lazy">
-<span>La Pêche</span>
-</div>
-</li>
-<li>
-<div class="rectangle" aria-label="Client 2">
-<img src="agriculture.jpg" alt="Client 2" loading="lazy">
-<span>L'Agreculture</span>
-</div>
-</li>
-<li>
-<div class="rectangle" aria-label="Client 3">
-<img src="conserve.JPG" alt="Client 3" loading="lazy">
-<span>La Conserverie</span>
-</div>
-</li>
-<li>
-<div class="rectangle" aria-label="Client 4">
-<img src="congelation.JPG" alt="Client 4" loading="lazy">
-<span>La Congélation</span>
-</div>
-</li>
-</ul>
+  <h2>Nos clients</h2>
+  <ul>
+    <li>
+      <div class="rectangle">
+        <img src="pêche.JPEG" alt="Client 1" loading="lazy">
+        <span>La Pêche</span>
+      </div>
+    </li>
+    <li>
+      <div class="rectangle">
+        <img src="agriculture.jpg" alt="Client 2" loading="lazy">
+        <span>L'Agriculture</span>
+      </div>
+    </li>
+    <li>
+      <div class="rectangle">
+        <img src="conserve.JPG" alt="Client 3" loading="lazy">
+        <span>La Conserverie</span>
+      </div>
+    </li>
+    <li>
+      <div class="rectangle">
+        <img src="congelation.JPG" alt="Client 4" loading="lazy">
+        <span>La Congélation</span>
+      </div>
+    </li>
+  </ul>
 </section>
 
 <section id="contact">
-<h2>Contact</h2>
-<p><strong>Email :</strong> <a href="mailto:a.maktit@gmail.com">a.maktit@gmail.com</a></p>
-<p><strong>Téléphone fixe :</strong> 05 28 28 46 82</p>
-<p><strong>GSM :</strong> 06 61 91 57 22</p>
-<p><strong>Adresse :</strong> Agadir, Maroc</p>
+  <h2>Contact</h2>
+  <p><strong>Email :</strong> <a href="mailto:a.maktit@gmail.com">a.maktit@gmail.com</a></p>
+  <p><strong>Téléphone fixe :</strong> 05 28 28 46 82</p>
+  <p><strong>GSM :</strong> 06 61 91 57 22</p>
+  <p><strong>Adresse :</strong> Agadir, Maroc</p>
 </section>
 
 <section id="carte">
-<h2>Carte de visite</h2>
-<a href="business card AIT ABDELMALEK.pdf" download class="btn">Télécharger ma carte</a>
+  <h2>Carte de visite</h2>
+  <a href="business card AIT ABDELMALEK.pdf" download class="btn">Télécharger ma carte</a>
 </section>
 
 <footer>
-<p>&copy; 2025 CP-SUD Consulting - Tous droits réservés</p>
+  <p>&copy; 2025 CP-SUD Consulting - Tous droits réservés</p>
 </footer>
 
 <button id="backToTop" title="Retour en haut">&#8679;</button>
@@ -285,14 +367,35 @@ footer{
 // Scroll animation
 const sections = document.querySelectorAll('section');
 const observer = new IntersectionObserver(entries => {
-entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
+  entries.forEach(entry => {
+    if(entry.isIntersecting) entry.target.classList.add('visible');
+  });
 }, { threshold:0.2 });
 sections.forEach(section => observer.observe(section));
 
-// Back to top
+// Back to top button
 const backToTop = document.getElementById('backToTop');
-window.addEventListener('scroll',()=>{ backToTop.style.display = window.scrollY>300?'block':'none'; });
-backToTop.addEventListener('click',()=>{ window.scrollTo({top:0,behavior:'smooth'}); });
+window.addEventListener('scroll',()=>{
+  backToTop.style.display = window.scrollY>300?'block':'none';
+});
+backToTop.addEventListener('click',()=>{
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+
+// Mobile menu toggle
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+menuToggle.addEventListener('click',()=>{
+  navLinks.classList.toggle('show');
+  menuToggle.classList.toggle('active');
+});
+// Close menu on link click
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', ()=>{
+    navLinks.classList.remove('show');
+    menuToggle.classList.remove('active');
+  });
+});
 </script>
 </body>
 </html>
