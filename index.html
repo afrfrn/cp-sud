@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CP-SUD Consulting</title>
+<meta name="description" content="CP-SUD Consulting - Conseil & accompagnement pour entreprises à Agadir. Certification, formations et audit.">
+<meta name="keywords" content="CP-SUD, Conseil, Agadir, Certification, ISO, HACCP, Audit, Formation">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+/* ---------- Global ---------- */
+* {box-sizing:border-box; margin:0; padding:0;}
+body {
+  font-family:'Montserrat',sans-serif;
+  background-color:#f9f9f9;
+  color:#333;
+  line-height:1.6;
+  overflow-x:hidden;
+  scroll-behavior:smooth;
+}
+h1,h2{font-weight:600;}
+a{text-decoration:none; transition:0.3s;}
+a:hover{color:#28a745;}
+ul{padding-left:20px;}
+
+/* ---------- Header ---------- */
+header{
+  background:#005b96;
+  color:white;
+  padding:40px 20px;
+  text-align:center;
+}
+header h1{font-size:2.5rem;margin-bottom:10px;}
+header p{font-size:1.1rem;}
+
+/* ---------- Navigation ---------- */
+nav{
+  background:#003f63;
+  padding:12px;
+  text-align:center;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+nav a{color:white;margin:0 15px;font-weight:bold;}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-block;
+  background:#28a745;
+  color:white;
+  padding:10px 20px;
+  border-radius:8px;
+  font-weight:bold;
+  transition:0.3s;
+}
+.btn:hover{background:#1e7e34; transform: translateY(-3px);}
+
+/* ---------- Sections ---------- */
+section{
+  max-width:1000px;
+  margin:60px auto;
+  padding:20px;
+  background:white;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+  opacity:0;
+  transform:translateY(30px);
+  transition:all 0.8s ease;
+  scroll-margin-top: 100px;
+}
+section.visible{opacity:1; transform:translateY(0);}
+section h2{color:#005b96; margin-bottom:15px; font-size:1.8rem;}
+
+/* ---------- Rectangle décoratif ---------- */
+.rectangle{
+  position:relative;
+  width:100%;
+  max-width:1000px;
+  height:220px;
+  margin:30px auto;
+  border-radius:20px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  box-shadow:0 8px 20px rgba(0,0,0,0.2);
+  cursor:pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.rectangle:hover{transform: scale(1.05); box-shadow:0 12px 30px rgba(0,0,0,0.3);}
+.rectangle img{
+  position:absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:0;
+  transition: transform 0.3s;
+}
+.rectangle:hover img{transform: scale(1.1);}
+.rectangle span{
+  position:relative;
+  z-index:1;
+  color:white;
+  font-size:1.4rem;
+  font-weight:600;
+  padding:0 15px;
+  text-shadow:1px 1px 6px rgba(0,0,0,0.6);
+}
+
+/* ---------- Clients ---------- */
+#clients ul{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+#clients li{width:100%;}
+
+/* ---------- Footer ---------- */
+footer{
+  text-align:center;
+  background:#003f63;
+  color:white;
+  padding:15px;
+  margin-top:60px;
+}
+
+/* ---------- Back to top ---------- */
+#backToTop{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#28a745;
+  color:white;
+  border:none;
+  padding:12px 16px;
+  border-radius:50%;
+  font-size:18px;
+  cursor:pointer;
+  display:none;
+  z-index:100;
+  transition:transform 0.3s, background 0.3s;
+}
+#backToTop:hover{background:#1e7e34; transform:translateY(-3px);}
+
+/* ---------- Responsive ---------- */
+@media(max-width:768px){
+  .rectangle{height:180px;}
+  .rectangle span{font-size:1.2rem;}
+}
+@media(max-width:480px){
+  nav{display:flex; flex-direction:column;}
+  nav a{margin:10px 0;}
+  #clients ul{grid-template-columns:1fr; gap:15px;}
+  .rectangle{height:150px;}
+  .rectangle span{font-size:1rem;}
+}
+
+
+
+</style>
+<link rel="icon" type="image/png" href="logo-removebg-preview.png">
+</head>
+
+<body>
+<!--<header>
+<h1>CP-SUD Consulting</h1>
+<p>Conseil & Accompagnement - Agadir</p>
+</header>-->
+<header style="display:flex; align-items:center; justify-content:center; gap:25px; flex-wrap:wrap; padding:30px 20px; background:#005b96; color:white;">
+    <img src="logo-removebg-preview.png" alt="Logo CP-SUD" style="height:100px; flex-shrink:0;">
+    <div style="text-align:center;">
+      <h1 style="margin:0; font-size:2.5rem;">CP-SUD Consulting</h1>
+      <p style="margin-top:5px; font-size:1.1rem;">Conseil & Accompagnement - Agadir</p>
+    </div>
+  </header>
+<nav>
+<a href="#services">Nos services</a>
+<a href="#mission">Notre mission</a>
+<a href="#vision">Notre vision</a>
+<a href="#valeurs">Nos valeurs</a>
+<a href="#clients">Nos clients</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<!-- Rectangle décoratif interactif -->
+<div class="rectangle">
+<img src="image.jpg" alt="Notre engagement" loading="lazy">
+<span>Notre engagement, votre réussite</span>
+</div>
+
+<section id="about">
+<h2>Qui sommes-nous ?</h2>
+<p>CP-SUD est un cabinet de conseil situé à Agadir, spécialisé en accompagnement des entreprises opérant dans les industries et la transformation des produits alimentaires.</p>
+<p>Animé par une équipe de consultants expérimentés, notre cabinet propose des missions de conseil sur mesure et adaptées aux besoins des PME, institutions et centres de formation.</p>
+</section>
+
+<section id="mission">
+<h2>Notre mission</h2>
+<p>Servir le développement, accompagner les changements, former les ressources humaines aux modèles de gestion pertinents.</p>
+</section>
+
+<section id="vision">
+<h2>Notre vision</h2>
+<p>Capitaliser sur notre savoir-faire et notre réseau de partenaires pour créer de la valeur ajoutée et vous accompagner vers la réussite.</p>
+</section>
+
+<section id="valeurs">
+<h2>Nos valeurs</h2>
+<ul>
+<li>Rigueur et professionnalisme</li>
+<li>Conformité et engagement</li>
+</ul>
+</section>
+
+<section id="services">
+<h2>Nos services</h2>
+<ul>
+<li>Accompagnement à la certification (ISO 9001, 14001, 45001, 50001, 22000, 26000, SMETA...)</li>
+<li>Préparation des agréments sanitaires (ONSSA, FDA USA, CIFER Chine, EORI Europe)</li>
+<li>Implémentation HACCP et plan de maîtrise sanitaire</li>
+<li>Formations (qualité, normes, audit, maintenance, sur demande...)</li>
+<li>Audit & suivi</li>
+</ul>
+</section>
+
+<section id="clients">
+<h2>Nos clients</h2>
+<ul>
+<li>
+<div class="rectangle" aria-label="Client 1">
+<img src="pêche.JPEG" alt="Client 1" loading="lazy">
+<span>La Pêche</span>
+</div>
+</li>
+<li>
+<div class="rectangle" aria-label="Client 2">
+<img src="agriculture.jpg" alt="Client 2" loading="lazy">
+<span>L'Agreculture</span>
+</div>
+</li>
+<li>
+<div class="rectangle" aria-label="Client 3">
+<img src="conserve.JPG" alt="Client 3" loading="lazy">
+<span>La Conserverie</span>
+</div>
+</li>
+<li>
+<div class="rectangle" aria-label="Client 4">
+<img src="congelation.JPG" alt="Client 4" loading="lazy">
+<span>La Congélation</span>
+</div>
+</li>
+</ul>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<p><strong>Email :</strong> <a href="mailto:a.maktit@gmail.com">a.maktit@gmail.com</a></p>
+<p><strong>Téléphone fixe :</strong> 05 28 28 46 82</p>
+<p><strong>GSM :</strong> 06 61 91 57 22</p>
+<p><strong>Adresse :</strong> Agadir, Maroc</p>
+</section>
+
+<section id="carte">
+<h2>Carte de visite</h2>
+<a href="business card AIT ABDELMALEK.pdf" download class="btn">Télécharger ma carte</a>
+</section>
+
+<footer>
+<p>&copy; 2025 CP-SUD Consulting - Tous droits réservés</p>
+</footer>
+
+<button id="backToTop" title="Retour en haut">&#8679;</button>
+
+<script>
+// Scroll animation
+const sections = document.querySelectorAll('section');
+const observer = new IntersectionObserver(entries => {
+entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold:0.2 });
+sections.forEach(section => observer.observe(section));
+
+// Back to top
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll',()=>{ backToTop.style.display = window.scrollY>300?'block':'none'; });
+backToTop.addEventListener('click',()=>{ window.scrollTo({top:0,behavior:'smooth'}); });
+</script>
+</body>
+</html>
